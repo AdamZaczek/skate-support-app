@@ -1,4 +1,6 @@
 import React, { PropTypes, Component } from 'react'
+import { connect } from 'react-redux'
+import { like } from '../actions'
 
 
 class Comment extends Component {
@@ -7,12 +9,11 @@ class Comment extends Component {
     value: PropTypes.number.isRequired,
     like: PropTypes.func.isRequired,
     dislike: PropTypes.func.isRequired,
-    children: React.PropTypes.node
+    children: React.PropTypes.node.isRequired
   }
   likePost = () => {
     this.props.like()
   }
-
 
   render() {
     const { value, like, dislike } = this.props
