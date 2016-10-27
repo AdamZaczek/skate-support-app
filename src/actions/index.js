@@ -2,7 +2,7 @@ let nextvalue = 0
 export const like = (id) => ({
   type: 'LIKE',
   value: nextvalue++,
-  id,
+  id
 })
 
 export const dislike = (id) => ({

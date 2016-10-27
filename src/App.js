@@ -11,11 +11,13 @@ class App extends Component {
           <img src={skate} className="App-logo" alt="logo" />
           <h2>Welcome to My App</h2>
         </div>
-        <CommentBox data={[
-          { id: 1, author: "Adam Żaczek", text: "Best app ever dude!" },
-          { id: 2, author: "David Poliszak", text: "Amazing, I stopped drinking after seeing this! Now I'm sober for life." },
-          { id: 3, author: "Ewa z Wawy", text: "Legit!" }
-        ]} />
+        <CommentBox
+          data={[
+            { id: 1, author: "Adam Żaczek", text: "Best app ever dude!" },
+            { id: 2, author: "David Poliszak", text: "Amazing, I stopped drinking after seeing this! Now I'm sober for life." },
+            { id: 3, author: "Ewa z Wawy", text: "Legit!" }
+          ]}
+        />
         <div className="App-footer">
           <h2>Some Footer</h2>
         </div>
