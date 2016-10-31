@@ -1,11 +1,10 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
-
+import { Router, Route, browserHistory } from 'react-router';
 import App from './App';
 import NotFound from './components/notFound';
 
-const Routes = (props) => (
-  <Router {...props}>
+const Routes = ({store}) => (
+  <Router history={browserHistory}>
     <Route path="/" component={App} />
     <Route path="*" component={NotFound} />
   </Router>
