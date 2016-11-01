@@ -3,8 +3,16 @@ import CommentBox from './components/commentBox.js'
 import skate from './skate.svg';
 import './App.css';
 import { like } from './actions'
+import { connect } from 'react-redux'
 
-const App = () => (
+function mapStateToProps(state) {
+  return {
+    state: state
+  }
+}
+
+
+const App = ({state}) => (
   <div className="App">
     <div className="App-header">
       <img src={skate} className="App-logo" alt="logo" />
@@ -12,9 +20,9 @@ const App = () => (
     </div>
     <CommentBox />
     <div className="App-footer">
-      <strong>Leave us a like <button onClick={() => like()}>Like</button></strong>
+      <strong>Leave us a like. Likes: {state} <button onClick={() => like()}>Like</button></strong>
     </div>
   </div>
 )
 
-export default App;
+export default connect(mapStateToProps)(App);
