@@ -7,12 +7,21 @@ import { connect } from 'react-redux'
 
 function mapStateToProps(state) {
   return {
-    state: state.appLikes
+    likes: state.appLikes
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    onLikeClick: () => {
+      dispatch(like())
+      //console.log('it fired')
+    }
   }
 }
 
 
-const App = ({state}) => (
+const App = ({likes, onLikeClick}) => (
   <div className="App">
     <div className="App-header">
       <img src={skate} className="App-logo" alt="logo" />
@@ -20,9 +29,9 @@ const App = ({state}) => (
     </div>
     <CommentBox />
     <div className="App-footer">
-      <strong>Leave us a like. Likes: {state} <button onClick={() => like()}>Like</button></strong>
+      <strong>Leave us a like. Likes: {likes} <button onClick={() => onLikeClick()}>Like</button></strong>
     </div>
   </div>
 )
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
