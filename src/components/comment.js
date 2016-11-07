@@ -5,9 +5,9 @@ import React from 'react' //Ill need to add PropTypes later on
 
 const Comment = (props) => (
   <div className="Comment">
-    <h2 className="Author">
+    <h4 className="Author">
       {props.author}
-    </h2>
+    </h4>
     {props.children}
   </div>
 )
