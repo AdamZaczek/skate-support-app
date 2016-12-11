@@ -2,23 +2,7 @@ import React from 'react';
 import CommentBox from './components/commentBox.js'
 import skate from './skate.svg';
 import './App.css';
-import { like } from './actions'
 import { connect } from 'react-redux'
-
-function mapStateToProps(state) {
-  return {
-    likes: state.appLikes
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    onLikeClick: () => {
-      dispatch(like())
-      //console.log('it fired')
-    }
-  }
-}
 
 
 const App = ({likes, onLikeClick}) => (
@@ -29,9 +13,9 @@ const App = ({likes, onLikeClick}) => (
     </div>
     <CommentBox />
     <div className="App-footer">
-      <strong>Leave us a like. Likes: {likes} <button onClick={() => onLikeClick()}>Like</button></strong>
     </div>
   </div>
 )
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default connect()(App);

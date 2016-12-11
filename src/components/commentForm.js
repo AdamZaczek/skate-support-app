@@ -1,44 +1,57 @@
 import React from 'react';
+import { comment } from '../actions'
+import { connect } from 'react-redux'
+import Comment from './comment'
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch: dispatch
+  }
+}
+
+function mapStateToProps(state, ownProps) {
+  console.log(state)
+  return {
+    comments: state.comments.commentsList
+  }
+}
 
 class CommentForm extends React.Component {
   constructor() {
     super()
-    this.state = {
-      comment: { title: "Yo" }
-    }
 
-    this.onTitleChange = this.onTitleChange.bind(this)
     this.onClickSave = this.onClickSave.bind(this)
   }
 
-  onClickSave() {
-    console.log('yo');console.log('yay')
-    alert('Hello' + this.state.comment.title)
-    console.log(this.state)
-  }
-
-  onTitleChange(event) {
-    const comment = this.state.comment
-    comment.title = event.target.value
-    this.setState({comment: comment})
+  onClickSave(input) {
+    this.props.dispatch(comment(input.value));;
   }
 
   render() {
+    let input;
+    let key = 0;
+
     return(
       <div className="Comment-form">
+        {this.props.comments.map((comment) => {
+          return (
+            <Comment key={key++} author='Spiderman'>
+              {comment}
+            </Comment>
+          )})
+        }
         <h2>Don't try to comment here!</h2>
-        <input
-          type="text"
-          onChange={this.onTitleChange}
-          value={this.state.comment.title} />
-        <input
-          type="submit"
-          value="save"
-          onClick={this.onClickSave}
-        />
+        <form onSubmit={e => {e.preventDefault(); this.onClickSave(input);}}>
+          <input
+            ref={node => {input=node}}
+            type="text"
+            placeholder="Write something...."
+          />
+          <button type="submit">Post</button>
+        </form>
       </div>
     )
   }
 }
 
-export default CommentForm;
+export default connect(mapStateToProps, mapDispatchToProps)(CommentForm);
