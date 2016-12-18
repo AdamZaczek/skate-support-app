@@ -3,10 +3,10 @@ import React from 'react';
 const NotFound = () => (
   <div className="404">
     <h1>
-      404 <small>Not found.</small>
+      404 <small>Strefa złamanych blatów</small>
     </h1>
     <div>
-      There is nothing except for loneliness here :(
+      Pewnie źle wpisałeś adres :(
     </div>
   </div>
 )

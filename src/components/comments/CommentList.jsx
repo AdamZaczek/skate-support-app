@@ -1,5 +1,5 @@
 import React from 'react';
-import Comment from './comment'
+import Comment from './Comment'
 let data = [
   { id: 1, author: "Adam Żaczek", text: "Best app ever dude!" },
   { id: 2, author: "David Poliszak", text: "Amazing, I stopped drinking after seeing this! Now Im sober for life." },

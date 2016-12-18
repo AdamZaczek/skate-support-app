@@ -1,6 +1,6 @@
 import React from 'react';
-import CommentList from './commentList.js'
-import CommentForm from './commentForm.js'
+import CommentList from './CommentList'
+import CommentForm from './CommentForm'
 
 const CommentBox = () => (
   <div className="Comment-box">
