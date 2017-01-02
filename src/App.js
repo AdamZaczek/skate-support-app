@@ -1,6 +1,5 @@
 import React from 'react';
 import HeaderContainer from './components/HeaderContainer'
-import CommentBox from './components/comments/CommentBox'
 import Footer from './components/Footer'
 import './App.css';
 import { connect } from 'react-redux'
@@ -14,7 +13,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <HeaderContainer />
-        <CommentBox />
+        {this.props.children}
         <Footer />
       </div>
     )
